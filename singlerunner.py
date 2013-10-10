@@ -54,6 +54,7 @@ class SingleRunner(object):
         fn = self.os.path.basename(file_name)
         self.pidfile = '/tmp/%s.pid' % fn
         self.stop_reason = 'exit normally'
+        self.check_running()
         #print '%screated pidfile: %s%s' % (self.GRE, self.pidfile, self.NOR)
 
     def termination_handler (self, signum,frame):
