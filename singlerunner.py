@@ -79,6 +79,7 @@ class SingleRunner(object):
         else:
             self.signal.signal(self.signal.SIGINT,self.termination_handler)
             self.signal.signal(self.signal.SIGTERM,self.termination_handler)
+            self.signal.signal(self.signal.SIGSEGV,self.termination_handler)
             file(self.pidfile, 'w').write('1')
 
     def stop_running(self, msg='normally'):
